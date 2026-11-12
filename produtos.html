@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe & Sereno</title>
+    <link rel="stylesheet" href="produtos.css">
+    <link rel="stylesheet" href="cart.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <canvas id="hero-background" aria-hidden="true"></canvas>
+    <video id="hero-video-source" autoplay muted loop playsinline class="video-origen-oculto" aria-hidden="true">
+        <source src="assets/videos/grok video cafe.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <header class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="brand">
+                <span class="brand-text">Cafe<span> & Sereno</span></span>
+            </a>
+            <div class="nav-actions-container">
+                <button class="cart-button" id="cartButton" type="button" aria-label="Abrir carrinho">
+                    <i class='bx bx-cart' aria-hidden="true"></i>
+                    <span>Carrinho</span>
+                    <span class="cart-count" id="cartCount" aria-live="polite">0</span>
+                </button>
+                <a href="#products-container" class="btn btn-primary nav-cta">Comprar Agora</a>
+            </div>
+        </div>
+    </header>
+
+
+    <section class="products-section">
+        <aside class="sidebar">
+            <div class="filter-group">
+                <div class="keyword-heading">
+                    <h3>Palavras-chave</h3>
+                    <button class="tag-add-btn" id="showTagsBtn" type="button" aria-label="Adicionar palavras-chave" aria-controls="availableTags" aria-expanded="false">+</button>
+                </div>
+                <div class="tags-container" id="selectedTags">
+                    <span class="tag" data-tag="moido">Moido <button class="tag-remove" type="button" aria-label="Remover Moido">&times;</button></span>
+                    <span class="tag" data-tag="extracao">Extração <button class="tag-remove" type="button" aria-label="Remover Extração">&times;</button></span>
+                    <span class="tag" data-tag="aromatico">Aromático <button class="tag-remove" type="button" aria-label="Remover Aromático">&times;</button></span>
+                </div>
+                <div class="tags-container available-tags" id="availableTags" aria-label="Palavras-chave disponíveis" hidden></div>
+            </div>
+
+            <div class="filter-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="label1" data-category="preparado" checked>
+                    <label for="label1">
+                        <strong>Preparado</strong>
+                        <span class="description">Café preparado</span>
+                    </label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="label2" data-category="torrado" checked>
+                    <label for="label2">
+                        <strong>Torrado</strong>
+                        <span class="description">Grãos torrados</span>
+                    </label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="label3" data-category="instantaneo" checked>
+                    <label for="label3">
+                        <strong>Instantâneo</strong>
+                        <span class="description">Café instantâneo</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <div class="price-range-header">
+                    <span>Preço</span>
+                    <span id="price-range-label">$0-100</span>
+                </div>
+                <div class="range-slider-wrapper">
+                    <div class="slider-track"></div>
+                    <input type="range" min="0" max="100" value="0" class="thumb thumb-left" aria-label="Preço mínimo">
+                    <input type="range" min="0" max="100" value="100" class="thumb thumb-right" aria-label="Preço máximo">
+                </div>
+            </div>
+        </aside>
+
+        <div class="main-content">
+            <div class="top-bar">
+                <div class="search-wrapper">
+                    <span class="search-icon">🔍</span>
+                    <input type="search" id="productSearch" placeholder="Buscar produtos" aria-label="Buscar produtos">
+                </div>
+                <div class="sort-options">
+                    <button class="sort-btn active" type="button" data-sort="newest" aria-pressed="true">Novo</button>
+                    <button class="sort-btn" type="button" data-sort="price-asc" aria-pressed="false">Preço crescente</button>
+                    <button class="sort-btn" type="button" data-sort="price-desc" aria-pressed="false">Preço decrescente</button>
+                    <button class="sort-btn" type="button" data-sort="rating" aria-pressed="false">Avaliação</button>
+                </div>
+            </div>
+
+            <div class="products-grid" id="products-container">
+            </div>
+            <p id="product-results" class="product-results" aria-live="polite"></p>
+
+            <template id="product-card-template">
+                <article class="product">
+                    <div class="product-image">
+                        <img src="" alt="">
+                    </div>
+                    <div class="product-content">
+                        <header>
+                            <h2 class="product-title">Latte</h2>
+                            <p class="product-description">Descripción...</p>
+                        </header>
+                        <footer class="product-footer">
+                            <span class="product-price">$0.00</span>
+                            <button class="btn-primary" type="button">Adicionar ao carrinho</button>
+                        </footer>
+                    </div>
+                </article>
+            </template>
+        </div>
+    </section>
+
+    <dialog class="cart-dialog" id="cartDialog" aria-labelledby="cartTitle">
+        <div class="cart-view" id="cartView">
+            <div class="cart-dialog-header">
+                <h2 id="cartTitle">Seu carrinho</h2>
+                <button class="cart-close" id="closeCartBtn" type="button" aria-label="Fechar carrinho">&times;</button>
+            </div>
+            <div class="cart-items" id="cartItems"></div>
+            <div class="cart-summary">
+                <span>Total</span>
+                <strong id="cartTotal">$0.00</strong>
+            </div>
+            <div class="cart-actions">
+                <button class="cart-clear" id="clearCartBtn" type="button">Limpar carrinho</button>
+                <button class="cart-checkout" id="checkoutBtn" type="button">Finalizar pedido</button>
+            </div>
+        </div>
+        <section class="checkout-success" id="checkoutSuccess" aria-labelledby="checkoutTitle" hidden>
+            <button class="cart-close success-close" id="closeSuccessBtn" type="button" aria-label="Fechar confirmação">&times;</button>
+            <div class="success-icon"><i class='bx bx-check' aria-hidden="true"></i></div>
+            <p class="success-eyebrow">Pedido registrado</p>
+            <h2 id="checkoutTitle">Obrigado pela sua compra!</h2>
+            <p class="success-description">Seu pedido está confirmado. Esta demonstração não realiza cobranças.</p>
+            <div class="success-details">
+                <p>Pedido <strong id="orderReference"></strong></p>
+                <p>Itens <strong id="orderItemCount"></strong></p>
+                <p>Total <strong id="orderTotal"></strong></p>
+            </div>
+            <button class="cart-checkout success-return" id="returnToShopBtn" type="button">Continuar comprando</button>
+        </div>
+    </dialog>
+    <script src="products.js"></script>
+    <script src="cart.js"></script>
+</body>
+
+</html>

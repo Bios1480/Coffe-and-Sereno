@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe & Sereno</title>
+    <meta name="description" content="Premium roasted coffee brand landing page.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cart.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="assets/images/favicon cafe & Sereno.png" type="image/png">
+</head>
+
+<body>
+    <canvas id="hero-background"></canvas>
+    <video id="hero-video-source" autoplay muted loop playsinline class="video-origen-oculto">
+        <source src="assets/videos/grok video cafe.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-overlay"></div>
+    <header class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="#hero" class="brand">
+                <span class="brand-text">Cafe<span> & Sereno</span></span>
+            </a>
+            <nav class="nav-links">
+                <a href="#hero">Início</a>
+                <a href="#about">Sobre Nós</a>
+                <a href="#Menu">Produtos</a>
+                <a href="#anatomia">O Café</a>
+            </nav>
+            
+            <div class="nav-actions-container">
+                <button class="cart-button" id="cartButton" type="button" aria-label="Abrir carrinho">
+                    <i class='bx bx-cart' aria-hidden="true"></i>
+                    <span>Carrinho</span>
+                    <span class="cart-count" id="cartCount" aria-live="polite">0</span>
+                </button>
+                <a href="produtos.html" class="btn btn-primary nav-cta">Comprar Agora</a>
+                <a href="login.html" class="btn btn-primary nav-cta" id="loginNavBtn">Faça Login</a>
+                    <span id="accountStatusMessage" class="account-status hidden">No has iniciado sesión</span>
+
+                <div id="userAccountContainer" class="user-account-container hidden">
+                    <button id="accountToggleBtn" class="account-circle-btn" aria-label="Menú de cuenta">
+                        <i class='bx bx-user'></i>
+                    </button>
+             
+                    <div id="accountDropdown" class="account-dropdown hidden">
+                        <div class="dropdown-header">
+                            <p class="dropdown-title">Mi Cuenta</p>
+                                <p id="dropdownUserName" class="dropdown-name"></p>
+                                <p id="dropdownUserEmail" class="dropdown-email"></p>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <button id="dropdownLogoutBtn" class="dropdown-logout-btn">Cerrar Sesión</button>
+                    </div>
+                </div>
+            </div>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <line x1="3" y1="12" x2="21" y2="12" />
+                    <line x1="3" y1="18" x2="21" y2="18" />
+                </svg>
+            </button>
+        </div>
+        <nav class="nav-mobile" id="navMobile">
+            <a href="#hero">Início</a>
+            <a href="#about">Sobre Nós</a>
+            <a href="#Menu">Produtos</a>
+            <a href="#anatomia">O Café</a>
+            <a href="login.html" id="mobileLoginLink">Faça Login</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section" id="hero">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <h1 class="hero-title">
+                            <span class="reveal-text">Descubra a</span><br>
+                            <span class="reveal-text">Arte do Café</span><br>
+                            <span class="reveal-text">Perfeito</span>
+                        </h1>
+                        <p class="hero-subtitle">
+                            Experimente os melhores grãos de café torrados premium, provenientes diretamente das fazendas mais exclusivas do mundo. Desperte seus sentidos a cada xícara.
+                        </p>
+                        <div class="hero-actions">
+                            <a href="produtos.html" class="btn btn-primary btn-large">Peça Agora</a>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <div class="container stats-container">
+                <div class="stat-box">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Variedades de Café</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">25+</div>
+                    <div class="stat-label">Pedidos em Processo</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Clientes Felizes</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="promises">
+    <div class="promises-card">
+        <div class="promises-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M17 8h1a4 4 0 1 1 0 8h-1"/>
+                <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/>
+                <line x1="6" y1="2" x2="6" y2="4"/>
+                <line x1="10" y1="2" x2="10" y2="4"/>
+                <line x1="14" y1="2" x2="14" y2="4"/>
+            </svg>
+        </div>
+        <h3>Café Premium</h3>
+        <p>Grãos de origem única, tostados perfeitamente.</p>
+    </div>
+
+    <div class="promises-card">
+        <div class="promises-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+        </div>
+        <h3>Entrega Rápida</h3>
+        <p>Seu café favorito em minutos.</p>
+    </div>
+
+    <div class="promises-card">
+        <div class="promises-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 19v3"/>
+                <path d="M12 19c-4.2 0-7-2.8-7-7 0-3.5 2.5-6.5 7-9 4.5 2.5 7 5.5 7 9 0 4.2-2.8 7-7 7Z"/>
+                <path d="M12 12v7"/>
+                <path d="m12 14-3-2"/>
+                <path d="m12 11 3-2"/>
+            </svg>
+        </div>
+        <h3>Sustentável</h3>
+        <p>Pacotes ecológicos e comércio justo.</p>
+    </div>
+
+    <div class="promises-card">
+        <div class="promises-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+                <path d="M2 12h20"/>
+            </svg>
+        </div>
+        <h3>Envios ao mundo todo</h3>
+        <p>Entregamos em todo o mundo a diversos países.</p>
+    </div>
+</section>
+    
+    <section class="about" , id="about">
+        <div class="about-content">
+            <div class="about-text">
+                <h2 class="about-title">Sobre Nós</h2>
+                <p>Somos uma empresa dedicada à produção de grãos de café de alta qualidade.
+                    Oferecemos uma ampla variedade de produtos para satisfazer os gostos de nossos clientes em todo o mundo, 
+                    tanto nos mercados locais quanto nos internacionais.</p>
+
+                <p>Contamos com uma equipe de profissionais altamente qualificados,
+                    o que nos permite prestar um serviço de qualidade aos nossos clientes.</p>
+
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1772119044027-04e80adeda6b?q=80&w=689&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"  
+                    alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="products-section" id="Menu">
+        <h2 class="title-products">Nossos Productos</h2>
+
+        <div class="carousel-container">
+            <button class="carousel-btn prev" id="prevBtn">❮</button>
+
+            <div class="carousel-window">
+                <div class="container-productos" id="track">
+                    <article class="product" data-category="preparado" data-tags="extracao aromatico" data-rating="4.8">
+                        <div class="product-image">
+                            <img src="https://instacuppastore.com/cdn/shop/articles/blog-frothy-cappuccino-recipe-cafe-style-cover_2458483b-890a-4808-b019-ebeaa93eb52d.jpg?v=1775497190&width=1100"
+                                alt="cappuccino">
+                        </div>
+                        <div class="product-content">
+                            <header>
+                                <h2>Cappuccino</h2>
+                                <p>Bebida de origem italiana  feita à base de café expresso e leite</p>
+                            </header>
+                            <footer>
+                                <p>$8.00</p>
+                                <button class="btn btn-primary" type="button" data-cart-add data-product-name="Cappuccino" data-product-price="8">Agregar ao carrito</button>
+                            </footer>
+                        </div>
+                    </article>
+
+                    <article class="product" data-category="preparado" data-tags="moido aromatico" data-rating="4.7">
+                        <div class="product-image">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPbv_0asvyHV2NynKHI4Bz7GAvAO5D3dchi1QC-5RHZdjIX_Cp-Xm9LqIF&s=10"
+                                alt="Latte">
+                        </div>
+                        <div class="product-content">
+                            <header>
+                                <h2>Latte</h2>
+                                <p>Bebida cremosa feita à base de café expresso e leite vaporizado</p>
+                            </header>
+                            <footer>
+                                <p>$9.00</p>
+                                <button class="btn btn-primary" type="button" data-cart-add data-product-name="Latte" data-product-price="9">Agregar ao carrito</button>
+                            </footer>
+                        </div>
+                    </article>
+                    <article class="product" data-category="torrado" data-tags="moido extracao" data-rating="4.6">
+                        <div class="product-image">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-KsD6M1uP5-FDL-zGcMqRClbSI-MfnwZGH_z05T-wCQOvCridwoZchhKY&s=10"
+                                alt="Espresso">
+                        </div>
+                        <div class="product-content">
+                            <header>
+                                <h2>Espresso</h2>
+                                <p>Grãos de origem única, tostados perfeitamente.</p>
+                            </header>
+                            <footer>
+                                <p>$8.00</p>
+                                <button class="btn btn-primary" type="button" data-cart-add data-product-name="Espresso" data-product-price="8">Agregar ao carrito</button>
+                            </footer>
+                        </div>
+                    </article>
+                    <article class="product" data-category="preparado" data-tags="extracao aromatico" data-rating="4.9">
+                        <div class="product-image">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSejeVr7QtDbaEn25wS4ZhycpCA-XvoEG1sY7Lg8_5ft6Sr9by_9b2_TQhb&s=10"
+                                alt="Mocha">
+                        </div>
+                        <div class="product-content">
+                            <header>
+                                <h2>Mocha</h2>
+                                <p> Bebida cremosa e adocicada, que combina a intensidade do café espresso com a doçura do chocolate e a suavidade do leite vaporizado</p>
+                            </header>
+                            <footer>
+                                <p>$7.00</p>
+                                <button class="btn btn-primary" type="button" data-cart-add data-product-name="Mocha" data-product-price="7">Agregar ao carrito</button>
+                            </footer>
+                        </div>
+                    </article>
+                    <article class="product" data-category="torrado" data-tags="moido extracao" data-rating="4.5">
+                        <div class="product-image">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjwFMiTx05EbyUVYFF8wFoeOh_jXd0svQvwpdeOE3l6A&s=10"
+                                alt="Americano">
+                        </div>
+                        <div class="product-content">
+                            <header>
+                                <h2>Americano</h2>
+                                <p> Bebida feita pela diluição de um café expresso com água quent</p>
+                            </header>
+                            <footer>
+                                <p>$8.00</p>
+                                <button class="btn btn-primary" type="button" data-cart-add data-product-name="Americano" data-product-price="8">Agregar ao carrito</button>
+                            </footer>
+                        </div>
+                    </article>
+
+                    <article class="product product-more">
+                        <div class="product-content-more">
+                            <p class="more-text">Quer mais produtos?</p>
+                            <a href="produtos.html" class="btn btn-primary btn-more">Clique aqui!!</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <button class="carousel-btn next" id="nextBtn">❯</button>
+        </div>
+    </section>
+
+    <section class="anatomy-section" id="anatomia">
+        <div class="container">
+            <h2 class="anatomy-main-title">A Anatomia do <span class="amber-text">Café</span></h2>
+
+            <div class="anatomy-container">
+                <div class="cup-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=1000&auto=format&fit=crop"
+                        alt="Cup Anatomy" class="cup-image">
+
+                    <button class="hotspot" type="button" style="top: 15%; left: 50%;" data-title="Microespuma"
+                        data-desc="Leite vaporizado a 65°C para uma textura de seda." aria-label="Microespuma: leite vaporizado a 65 graus para uma textura de seda" aria-expanded="false"></button>
+
+                    <button class="hotspot" type="button" style="top: 45%; left: 35%;" data-title="O Grão"
+                        data-desc="Arábica de altitude com notas de chocolate e nozes." aria-label="O Grão: arábica de altitude com notas de chocolate e nozes" aria-expanded="false"></button>
+
+                    <button class="hotspot" type="button" style="top: 75%; left: 60%;" data-title="A Extração"
+                        data-desc="25 segundos de pressão constante para o espresso perfeito." aria-label="A Extração: 25 segundos de pressão constante para o espresso perfeito" aria-expanded="false"></button>
+                </div>
+
+                <div class="anatomy-content">
+                    <div class="info-card">
+                        <i class='bx bx-Target-lock'></i>
+                        <p>Passe o mouse ou toque nos pontos para descobrir os segredos do nosso preparo artesanal.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3 class="footer-logo">Cafe<span> & Sereno</span></h3>
+                <p>Desfrute de um momento de relaxamento com uma xícara de café quente e um bom livro.
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h4>Redes Sociais</h4>
+                <ul>
+                    <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i class='bx bxl-instagram'> Instagram</i></a></li>
+                    <li><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><i class='bx bxl-facebook'> Facebook</i></a></li>
+                    <li><a href="https://x.com/" target="_blank" rel="noopener noreferrer"><i class='bx bxl-twitter'> Twitter</i></a></li>
+                    <li><a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer"><i class='bx bxl-tiktok'> TikTok</i></a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Contacto</h4>
+                <ul>
+                    <li><a href="mailto:cafe%26sereno@gmail.com">cafe&sereno@gmail.com</a></li>
+                    <li><a href="tel:+554112345678">+55 41 1234 - 5678</a></li>
+                    <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Rua+123%2C+456+-+Centro%2C+Curitiba+-+PR%2C+80000-000" target="_blank" rel="noopener noreferrer">Rua 123, 456 - Centro, Curitiba - PR, 80000-000</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <div class="footer-brand">
+                    <img src="assets/images/favicon cafe & Sereno.png" class="footer-icon">
+                    <h3 class="footer-logo">Cafe<span> & Sereno</span></h3>
+                </div>
+                <p>Desfrute de um momento de relaxamento com uma xícara de café quente e um bom livro..</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Cafe & Sereno - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <dialog class="cart-dialog" id="cartDialog" aria-labelledby="cartTitle">
+        <div class="cart-view" id="cartView">
+            <div class="cart-dialog-header">
+                <h2 id="cartTitle">Seu carrinho</h2>
+                <button class="cart-close" id="closeCartBtn" type="button" aria-label="Fechar carrinho">&times;</button>
+            </div>
+            <div class="cart-items" id="cartItems"></div>
+            <div class="cart-summary">
+                <span>Total</span>
+                <strong id="cartTotal">$0.00</strong>
+            </div>
+            <div class="cart-actions">
+                <button class="cart-clear" id="clearCartBtn" type="button">Limpar carrinho</button>
+                <button class="cart-checkout" id="checkoutBtn" type="button">Finalizar pedido</button>
+            </div>
+        </div>
+        <section class="checkout-success" id="checkoutSuccess" aria-labelledby="checkoutTitle" hidden>
+            <button class="cart-close success-close" id="closeSuccessBtn" type="button" aria-label="Fechar confirmação">&times;</button>
+            <div class="success-icon"><i class='bx bx-check' aria-hidden="true"></i></div>
+            <p class="success-eyebrow">Pedido registrado</p>
+            <h2 id="checkoutTitle">Obrigado pela sua compra!</h2>
+            <p class="success-description">Seu pedido está confirmado.</p>
+            <div class="success-details">
+                <p>Pedido <strong id="orderReference"></strong></p>
+                <p>Itens <strong id="orderItemCount"></strong></p>
+                <p>Total <strong id="orderTotal"></strong></p>
+            </div>
+            <button class="cart-checkout success-return" id="returnToShopBtn" type="button">Continuar comprando</button>
+        </div>
+    </dialog>
+    <script src="cart.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

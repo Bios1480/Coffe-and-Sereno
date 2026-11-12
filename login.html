@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Cadastro - Cafe & Sereno</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <canvas id="hero-background"></canvas>
+    <video id="hero-video-source" autoplay muted loop playsinline class="video-origen-oculto">
+        <source src="assets/videos/grok video cafe.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+
+    <div class="login-container">
+        <div class="login-card">
+            <a href="index.html" class="brand">
+                <span class="brand-text">Cafe<span> & Sereno</span></span>
+            </a>
+
+            <div id="loginSection">
+                <h2>Faça Login</h2>
+                <p class="login-subtitle">Bem-vindo de volta ao seu momento de café perfeito.</p>
+
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">E-mail</label>
+                        <input type="email" id="loginEmail" required placeholder="exemplo@correo.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loginPassword">Senha</label>
+                        <input type="password" id="loginPassword" required placeholder="********">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-large">Entrar</button>
+                </form>
+
+                <p class="login-footer">
+                    ¿Não tem uma conta? <a href="#" id="showRegisterBtn">Criar conta</a>
+                </p>
+            </div>
+
+            <p id="sessionStatusMessage" class="session-status hidden">No has iniciado sesión</p>
+
+
+            <div id="registerSection" class="hidden">
+                <h2>Criar Conta</h2>
+                <p class="login-subtitle">Junte-se à nossa comunidade de amantes de café.</p>
+
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="registerName">Nome Completo</label>
+                        <input type="text" id="registerName" required placeholder="Seu nome">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerEmail">E-mail</label>
+                        <input type="email" id="registerEmail" required placeholder="exemplo@correo.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerPassword">Senha</label>
+                        <input type="password" id="registerPassword" required placeholder="********">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-large">Cadastrar</button>
+                </form>
+
+                <p class="login-footer">
+                    Já tem uma conta? <a href="#" id="showLoginBtn">Faça login</a>
+                </p>
+            </div>
+
+            <div id="welcomeMessage" class="welcome-message hidden">
+                <p>¡Sesión iniciada, <span id="userEmailDisplay"></span>!</p>
+                <button id="logoutBtn" class="btn btn-secondary btn-large">Cerrar Sesión</button>
+                <a class="btn btn-secondary btn-large" href="index.html">Volte ao Inicio</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+
+</html>
